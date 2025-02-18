@@ -1,5 +1,5 @@
 type GridProps = {
-  children: React.ReactPortal;
+  children: React.ReactNode;
 };
 
 const Grid = ({children}: GridProps) => {
