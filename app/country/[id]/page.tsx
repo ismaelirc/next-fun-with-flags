@@ -28,7 +28,7 @@ export default async function Country({params}: Props) {
           />
         </div>
         <div className="flex flex-col justify-center p-6 text-sm text-gray-600">
-          <h2 className="text-xl font-semibold mb-4">Brazil</h2>
+          <h2 className="text-xl font-semibold mb-4">Brazil {id}</h2>
           <div className="space-y-2">
             <div className="flex items-center gap-1">
               <span className="font-semibold">Capital</span>
