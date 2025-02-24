@@ -14,18 +14,13 @@ const ApiClient = (baseUrl) => ({
 });
 
 const api = ApiClient("https://restcountries.com/v3.1");
-//const weatherApiClient = ApiClient("https://api.openweathermap.org/data/2.5");
-
+const baseFields = "cca3,name,capital,region,population,flags";
 const countriesApi = {
-  getAll: () =>
-    api.get("/all?fields=cca3,name,capital,region,population,flags"),
+  getAll: () => api.get(`/all?fields=${baseFields}`),
+  getCountry: (id) =>
+    api.get(
+      `/alpha/${id}?fields=${baseFields},languages,currencies,tld, borders`
+    ),
 };
 
-/*
-const weatherApi = {
-  getByCountryCode: (countryCode) =>
-    weatherApiClient.get(`/weather?q=${countryCode}`),
-};
-*/
-//export {countriesApi, weatherApi};
 export {countriesApi};

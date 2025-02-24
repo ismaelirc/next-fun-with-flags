@@ -4,7 +4,7 @@ import {useEffect, useState} from "react";
 import {Card, Grid} from "./components/Index";
 import {countriesApi} from "./services";
 
-type Country = {
+export type Country = {
   cca3: string;
   flags: {
     svg: string;
