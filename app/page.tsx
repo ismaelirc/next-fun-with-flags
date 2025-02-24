@@ -1,6 +1,7 @@
 "use client";
+import Link from "next/link";
 import {useEffect, useState} from "react";
-import {Card, Footer, Grid, Header} from "./components/Index";
+import {Card, Grid} from "./components/Index";
 import {countriesApi} from "./services";
 
 type Country = {
@@ -40,30 +41,27 @@ export default function Home() {
   if (error) return <div>{error}</div>;
   return (
     <>
-      <Header />
-      <main className="flex-1">
-        <Grid>
-          {countries.map(
-            ({cca3, flags, name, capital, region, population}, index) => {
-              const {svg: flag} = flags ?? "";
-              const {common: countryName} = name ?? {};
-              const capitalName = capital?.[0] ?? "";
-              return (
+      <Grid>
+        {countries.map(
+          ({cca3, flags, name, capital, region, population}, index) => {
+            const {svg: flag} = flags ?? "";
+            const {common: countryName} = name ?? {};
+            const capitalName = capital?.[0] ?? "";
+            return (
+              <Link href={`/country/${cca3}`} key={cca3}>
                 <Card
                   index={index}
-                  key={cca3}
                   flag={flag}
                   name={countryName}
                   capital={capitalName}
                   region={region}
                   population={population}
                 />
-              );
-            }
-          )}
-        </Grid>
-      </main>
-      <Footer />
+              </Link>
+            );
+          }
+        )}
+      </Grid>
     </>
   );
 }
