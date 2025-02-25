@@ -3,19 +3,7 @@ import Link from "next/link";
 import {useEffect, useState} from "react";
 import {Card, Grid} from "./components/Index";
 import {countriesApi} from "./services";
-
-export type Country = {
-  cca3: string;
-  flags: {
-    svg: string;
-  };
-  name: {
-    common: string;
-  };
-  region: string;
-  capital: string[];
-  population: number;
-};
+import {Country} from "./types/Country";
 
 export default function Home() {
   const [countries, setCountries] = useState<Country[]>([]);

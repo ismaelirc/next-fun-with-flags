@@ -19,7 +19,7 @@ const countriesApi = {
   getAll: () => api.get(`/all?fields=${baseFields}`),
   getCountry: (id) =>
     api.get(
-      `/alpha/${id}?fields=${baseFields},languages,currencies,tld, borders`
+      `/alpha/${id}?fields=${baseFields},languages,currencies,tld,borders`
     ),
 };
 
