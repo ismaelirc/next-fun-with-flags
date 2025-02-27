@@ -39,7 +39,6 @@ export default function Country() {
   if (error) return <div>{error}</div>;
 
   const {
-    cca3,
     flags,
     name,
     capital,
@@ -58,7 +57,7 @@ export default function Country() {
   const currenciesNames = Object.values(currencies ?? {})
     .map(({name, symbol}) => `${name} (${symbol})`)
     .join(", ");
-  const [topLevelDomain] = tld ?? {};
+  const [topLevelDomain] = tld ?? [];
   const bordersIds = borders ?? [];
 
   return (
