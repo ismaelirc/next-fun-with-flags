@@ -5,6 +5,7 @@ import {useParams} from "next/navigation";
 import {useEffect, useState} from "react";
 import {countriesApi} from "../../services";
 import {Country as countryProps} from "../../types/Country";
+import {formatNumber} from "../../utils";
 
 export default function Country() {
   const params = useParams();
@@ -95,7 +96,8 @@ export default function Country() {
               <span className="font-semibold">Region</span> {region}
             </div>
             <div>
-              <span className="font-semibold">Population</span> {population}
+              <span className="font-semibold">Population</span>{" "}
+              {formatNumber(population)}
             </div>
             <div>
               <span className="font-semibold">Languages</span> {languagesNames}

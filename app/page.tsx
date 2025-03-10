@@ -4,6 +4,7 @@ import {useEffect, useState} from "react";
 import {Card, Grid} from "./components/Index";
 import {countriesApi} from "./services";
 import {Country} from "./types/Country";
+import {formatNumber} from "./utils";
 
 export default function Home() {
   const [countries, setCountries] = useState<Country[]>([]);
@@ -40,6 +41,7 @@ export default function Home() {
             const {svg: flag} = flags ?? "";
             const {common: countryName} = name ?? {};
             const capitalName = capital?.[0] ?? "";
+            const populationFormated = formatNumber(population);
             return (
               <Link href={`/country/${cca3}`} key={cca3}>
                 <Card
@@ -48,7 +50,7 @@ export default function Home() {
                   name={countryName}
                   capital={capitalName}
                   region={region}
-                  population={population}
+                  population={populationFormated}
                 />
               </Link>
             );
