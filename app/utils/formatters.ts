@@ -1,4 +1,4 @@
-export const formatNumber = (number: number) => {
+export const formatNumber = (number: number | undefined) => {
     const units = ["", "k", "M", "B", "T"];
 
     if (!number) return "0";

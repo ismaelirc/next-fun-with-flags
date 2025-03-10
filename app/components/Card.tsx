@@ -6,7 +6,7 @@ type CardProps = {
   name: string;
   capital: string;
   region: string;
-  population: number;
+  population: string;
 };
 
 const Card = ({index, name, flag, capital, region, population}: CardProps) => {
