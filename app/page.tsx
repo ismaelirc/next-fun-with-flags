@@ -27,10 +27,15 @@ export default function Home() {
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>{error}</div>;
+
+  const sortedCountry = countries.sort((a, b) =>
+    a.name.common.localeCompare(b.name.common, "en-US")
+  );
+
   return (
     <>
       <Grid>
-        {countries.map(
+        {sortedCountry.map(
           ({cca3, flags, name, capital, region, population}, index) => {
             const {svg: flag} = flags ?? "";
             const {common: countryName} = name ?? {};

@@ -26,15 +26,15 @@ const Card = ({index, name, flag, capital, region, population}: CardProps) => {
         <h2 className="text-xl font-semibold mb-4">{name}</h2>
         <div className="space-y-2">
           <div>
-            <span className="font-semibold">Capital</span>
+            <span className="font-semibold">Capital </span>
             {capital}{" "}
           </div>
           <div>
-            <span className="font-semibold">Region</span>
+            <span className="font-semibold">Region </span>
             {region}{" "}
           </div>
           <div>
-            <span className="font-semibold">Population</span>
+            <span className="font-semibold">Population </span>
             {population}{" "}
           </div>
         </div>
