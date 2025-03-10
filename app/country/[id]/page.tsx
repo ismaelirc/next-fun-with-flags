@@ -51,7 +51,7 @@ export default function Country() {
     borders,
   } = country ?? {};
 
-  const {svg: flag} = flags ?? "";
+  const flag = flags?.svg ?? "";
   const {common: countryName, official: officialName} = name ?? {};
   const capitalName = capital?.[0] ?? "";
   const languagesNames = Object.values(languages ?? {}).join(", ");
