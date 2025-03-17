@@ -11,6 +11,7 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [search, setSearch] = useState("");
+  const [selected, setSelected] = useState("All regions");
 
   useEffect(() => {
     const fetchCountries = async () => {
@@ -36,9 +37,13 @@ export default function Home() {
     a.name.common.localeCompare(b.name.common, "en-US")
   );
 
-  const filteredCountries = sortedCountry.filter((country) =>
-    country.name.common.toLowerCase().includes(search.toLowerCase())
-  );
+  const filteredCountries = sortedCountry.filter(({name, region}) => {
+    const nameMatches = name.common
+      .toLowerCase()
+      .includes(search.toLowerCase());
+    const regionMatches = selected === "All regions" || region === selected;
+    return nameMatches && regionMatches;
+  });
 
   return (
     <>
@@ -48,7 +53,11 @@ export default function Home() {
           search={search}
           setSearch={setSearch}
         />
-        <Select options={regions} />
+        <Select
+          options={regions}
+          selected={selected}
+          setSelected={setSelected}
+        />
       </div>
       <Grid>
         {filteredCountries.map(
