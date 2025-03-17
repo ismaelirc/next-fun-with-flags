@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import {useEffect, useState} from "react";
-import {Card, Grid, Search} from "./components/Index";
+import {Card, Grid, Search, Select} from "./components/Index";
 import {countriesApi} from "./services";
 import {Country} from "./types/Country";
 import {formatNumber} from "./utils";
@@ -30,6 +30,8 @@ export default function Home() {
   if (loading) return <div>Loading...</div>;
   if (error) return <div>{error}</div>;
 
+  const regions = [...new Set(countries.map(({region}) => region))];
+
   const sortedCountry = countries.sort((a, b) =>
     a.name.common.localeCompare(b.name.common, "en-US")
   );
@@ -40,12 +42,13 @@ export default function Home() {
 
   return (
     <>
-      <div className="mb-8">
+      <div className="mb-8 flex justify-between">
         <Search
           count={filteredCountries.length}
           search={search}
           setSearch={setSearch}
         />
+        <Select options={regions} />
       </div>
       <Grid>
         {filteredCountries.map(
