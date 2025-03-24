@@ -30,7 +30,7 @@ const Search = ({options, selected, setSelected}: SelectProps) => {
       {isOpen && (
         <ul
           id="listbox-label"
-          className="absolute overflow-hidden w-full bg-white mt-2 rounded-lg shadow-md border-gray-300"
+          className="absolute overflow-hidden w-full bg-white mt-2 rounded-lg shadow-md border-gray-300 z-10"
         >
           {options.map((option, index) => (
             <li
