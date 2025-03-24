@@ -11,7 +11,7 @@ type CardProps = {
 
 const Card = ({index, name, flag, capital, region, population}: CardProps) => {
   return (
-    <div className="h-full overflow-hidden bg-white rounded-lg shadow-lg">
+    <div className="h-full overflow-hidden bg-white rounded-lg shadow-lg hover:shadow-xl hover:translate-y-1 transform transition-all duration-300 ease-in-out">
       <div className="aspect-video w-full">
         <Image
           alt={`Flag of ${name}`}

@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import {useParams} from "next/navigation";
 import {useEffect, useState} from "react";
+import {Loading} from "../../components/Index";
 import {countriesApi} from "../../services";
 import {Country as countryProps} from "../../types/Country";
 import {formatNumber} from "../../utils";
@@ -36,7 +37,7 @@ export default function Country() {
     }
   }, [id]);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <Loading text="Visiting country..." />;
   if (error) return <div>{error}</div>;
 
   const {
