@@ -1,6 +1,6 @@
+import {Footer, Header} from "@/components";
 import type {Metadata} from "next";
 import {Noto_Sans} from "next/font/google";
-import {Footer, Header} from "./components/Index";
 import "./globals.css";
 
 const notoSans = Noto_Sans({

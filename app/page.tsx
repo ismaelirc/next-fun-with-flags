@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import {useEffect, useState} from "react";
-import {Card, Grid, Loading, Search, Select} from "./components/Index";
+import {Card, Grid, Loading, Search, Select} from "./components";
 import {countriesApi} from "./services";
 import {Country} from "./types/Country";
 import {formatNumber} from "./utils";
